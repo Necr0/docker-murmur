@@ -26,8 +26,8 @@ ENV MURMUR_DATABASE="$MURMUR_DATA/murmur.sqlite" \
     MURMUR_OPUSTHRESHHOLD="100" \
     MURMUR_CHANNELNESTINGLIMIT="10" \
     MURMUR_CHANNELCOUNTLIMIT="1000" \
-    MURMUR_CHANNELNAME="[ \\-=\\w\\#\\[\\]\\{\\}\\(\\)\\@\\|]+" \
-    MURMUR_USERNAME="[-=\\w\\[\\]\\{\\}\\(\\)\\@\\|\\.]+" \
+    MURMUR_CHANNELNAME="[ \\\\-=\\\\w\\\\#\\\\[\\\\]\\\\{\\\\}\\\\(\\\\)\\\\@\\\\|]+" \
+    MURMUR_USERNAME="[-=\\\\w\\\\[\\\\]\\\\{\\\\}\\\\(\\\\)\\\\@\\\\|\\\\.]+" \
     MURMUR_TEXTMESSAGELENGTH="5000" \
     MURMUR_IMAGEMESSAGELENGTH="131072" \
     MURMUR_ALLOWHTML="true" \
