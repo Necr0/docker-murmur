@@ -17,23 +17,23 @@ function interpolate_vars {
     done
     echo -n "${line:0:-1}"
 }
-if [ ! -f /etc/murmur/config.ini ]; then
+if [[ ! -f /etc/murmur/config.ini ]]; then
+    echo "No static config file was found, templating config file."
     interpolate_vars < /etc/murmur.ini > /etc/murmur/config.ini;
 else
     echo "Static config file found, skipping templating."
 fi;
 
-
-if [ "$MURMUR_DEBUG_LOG_CONFIG" == "true" ]; then
-    echo "######## BEGINNING OF MURMUR CONFIG ############";
+if [[ "$MURMUR_DEBUG_LOG_CONFIG" == "true" ]]; then
+    echo "############ BEGINNING OF MURMUR CONFIG ################";
     cat /etc/murmur/config.ini;
-    echo "######## END OF MURMUR CONFIG ##################";
+    echo "############ END OF MURMUR CONFIG ######################";
 fi;
-
 
 # Set the SuperUser password the environment variable is set
 # To do this we have to start murmur with the -supw parameter which makes it set the password and exit, which is quite stupid IMO
-if [ ! -z "$MURMUR_SUPERUSER_PASSWORD" ]; then
+if [[ ! -z "$MURMUR_SUPERUSER_PASSWORD" ]]; then
+    echo "Setting SuperUser Password.";
     murmurd -fg -v -ini /etc/murmur/config.ini -supw "$MURMUR_SUPERUSER_PASSWORD"
 fi;
 
